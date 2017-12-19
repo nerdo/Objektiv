@@ -8,11 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class DomainBrowserMapSettings;
+@class ModifierKeyBrowserMapSettings;
+
 @interface BrowserItem : NSObject
 
 @property NSString *identifier;
 @property NSString *name;
 @property NSString *path;
+@property DomainBrowserMapSettings *domainBrowserMapSettings;
+@property ModifierKeyBrowserMapSettings *modifierKeyBrowserMapSettings;
 @property BOOL hidden;
 @property BOOL isDefault;
 

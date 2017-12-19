@@ -18,7 +18,7 @@
 @property (assign) IBOutlet NSButton *autoHideIcon;
 @property (assign) IBOutlet NSButton *showNotifications;
 @property (assign) IBOutlet MASShortcutView *hotkeyRecorder;
-
+@property NSArray *browsers;
 
 - (IBAction)toggleLoginItem: (id)sender;
 - (IBAction)toggleHideItem: (id)sender;

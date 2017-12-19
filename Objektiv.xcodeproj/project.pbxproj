@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		307D52181689B493003D6C8C /* objektiv-overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 307D52161689B493003D6C8C /* objektiv-overlay.png */; };
+		A85B60971FEB118C002E5DAF /* ModifierKeyBrowserMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85B60961FEB118C002E5DAF /* ModifierKeyBrowserMap.swift */; };
+		A85B60991FEB122E002E5DAF /* ModifierKeyListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85B60981FEB122E002E5DAF /* ModifierKeyListener.swift */; };
+		A85B609D1FEB822D002E5DAF /* ModifierKeysControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85B609C1FEB822D002E5DAF /* ModifierKeysControl.swift */; };
+		A85B60A11FEB960E002E5DAF /* ModifierKeyBrowserMapSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85B60A01FEB960E002E5DAF /* ModifierKeyBrowserMapSettings.swift */; };
+		A87070E91FE709C200F58919 /* BrowserMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87070E81FE709C200F58919 /* BrowserMappable.swift */; };
+		A87070EC1FE779F400F58919 /* DefaultBrowserMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87070EB1FE779F400F58919 /* DefaultBrowserMap.swift */; };
+		A87071191FE8706A00F58919 /* DomainBrowserMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87071181FE8706A00F58919 /* DomainBrowserMap.swift */; };
+		A870711B1FE8D63200F58919 /* DomainBrowserMapSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A870711A1FE8D63200F58919 /* DomainBrowserMapSettings.swift */; };
+		A870711E1FE9FA5100F58919 /* PrefsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A870711C1FE9DAEC00F58919 /* PrefsController.swift */; };
 		BC084585168484D500619E60 /* ZeroKitUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = BC084584168484D500619E60 /* ZeroKitUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BC084589168498D000619E60 /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = BC084588168498D000619E60 /* PFMoveApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BC08458D1684998600619E60 /* NSString+SymlinksAndAliases.m in Sources */ = {isa = PBXBuildFile; fileRef = BC08458B1684998600619E60 /* NSString+SymlinksAndAliases.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -22,7 +31,6 @@
 		BC9736A716806798002304FA /* BrowsersMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9736A616806798002304FA /* BrowsersMenu.m */; };
 		BC9736B01680ACC1002304FA /* BrowserItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9736AF1680ACC1002304FA /* BrowserItem.m */; };
 		BC9A149816ADE25000495314 /* Objektiv.iconset in Resources */ = {isa = PBXBuildFile; fileRef = BC9A149716ADE25000495314 /* Objektiv.iconset */; };
-		BC9C5498165E57A80098709F /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9C5496165E57A80098709F /* PrefsController.m */; };
 		BC9C5499165E57A80098709F /* PrefsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9C5497165E57A80098709F /* PrefsController.xib */; };
 		BCB54DE3164291F8003A59DF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB54DE2164291F8003A59DF /* Cocoa.framework */; };
 		BCB54DED164291F8003A59DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BCB54DEB164291F8003A59DF /* InfoPlist.strings */; };
@@ -82,6 +90,16 @@
 		307D52171689B493003D6C8C /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/objektiv-overlay.png"; sourceTree = "<group>"; };
 		3D586439309ED799E410F4B8 /* libPods-Objektiv.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Objektiv.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F7216227D724BE9A9EBC6DC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A85B60961FEB118C002E5DAF /* ModifierKeyBrowserMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModifierKeyBrowserMap.swift; path = browsermaps/ModifierKeyBrowserMap.swift; sourceTree = "<group>"; };
+		A85B60981FEB122E002E5DAF /* ModifierKeyListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifierKeyListener.swift; sourceTree = "<group>"; };
+		A85B609C1FEB822D002E5DAF /* ModifierKeysControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifierKeysControl.swift; sourceTree = "<group>"; };
+		A85B60A01FEB960E002E5DAF /* ModifierKeyBrowserMapSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModifierKeyBrowserMapSettings.swift; path = mozilla/ModifierKeyBrowserMapSettings.swift; sourceTree = "<group>"; };
+		A87070E71FE709C200F58919 /* Objektiv-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Objektiv-Bridging-Header.h"; sourceTree = "<group>"; };
+		A87070E81FE709C200F58919 /* BrowserMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserMappable.swift; sourceTree = "<group>"; };
+		A87070EB1FE779F400F58919 /* DefaultBrowserMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBrowserMap.swift; sourceTree = "<group>"; };
+		A87071181FE8706A00F58919 /* DomainBrowserMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DomainBrowserMap.swift; path = browsermaps/DomainBrowserMap.swift; sourceTree = "<group>"; };
+		A870711A1FE8D63200F58919 /* DomainBrowserMapSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainBrowserMapSettings.swift; sourceTree = "<group>"; };
+		A870711C1FE9DAEC00F58919 /* PrefsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefsController.swift; sourceTree = "<group>"; };
 		B1FCC4D6C80F9B9D903BC35D /* Pods-Objektiv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Objektiv.release.xcconfig"; path = "Pods/Target Support Files/Pods-Objektiv/Pods-Objektiv.release.xcconfig"; sourceTree = "<group>"; };
 		BC084583168484D500619E60 /* ZeroKitUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZeroKitUtilities.h; path = zerokit/ZeroKitUtilities.h; sourceTree = "<group>"; };
 		BC084584168484D500619E60 /* ZeroKitUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZeroKitUtilities.m; path = zerokit/ZeroKitUtilities.m; sourceTree = "<group>"; };
@@ -105,8 +123,6 @@
 		BC9736AE1680ACC1002304FA /* BrowserItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserItem.h; sourceTree = "<group>"; };
 		BC9736AF1680ACC1002304FA /* BrowserItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserItem.m; sourceTree = "<group>"; };
 		BC9A149716ADE25000495314 /* Objektiv.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = Objektiv.iconset; sourceTree = "<group>"; };
-		BC9C5495165E57A80098709F /* PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsController.h; sourceTree = "<group>"; };
-		BC9C5496165E57A80098709F /* PrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefsController.m; sourceTree = "<group>"; };
 		BC9C5497165E57A80098709F /* PrefsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrefsController.xib; sourceTree = "<group>"; };
 		BCB54DDE164291F8003A59DF /* Objektiv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Objektiv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB54DE2164291F8003A59DF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -173,6 +189,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A87070EA1FE779DA00F58919 /* browsermaps */ = {
+			isa = PBXGroup;
+			children = (
+				A87070E81FE709C200F58919 /* BrowserMappable.swift */,
+				A87070EB1FE779F400F58919 /* DefaultBrowserMap.swift */,
+				A87071181FE8706A00F58919 /* DomainBrowserMap.swift */,
+				A85B60961FEB118C002E5DAF /* ModifierKeyBrowserMap.swift */,
+			);
+			name = browsermaps;
+			sourceTree = "<group>";
+		};
 		BC0845861684856100619E60 /* zerokit */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +226,8 @@
 				BCB54DF4164291F8003A59DF /* AppDelegate.h */,
 				BCB54DF5164291F8003A59DF /* AppDelegate.m */,
 				BC7F331E1642A63700A2DAFD /* Constants.h */,
+				A87070E71FE709C200F58919 /* Objektiv-Bridging-Header.h */,
+				A87070EA1FE779DA00F58919 /* browsermaps */,
 				BCB1EAC616AD940400E47EB2 /* models */,
 				BCB1EAC816AD941B00E47EB2 /* ui */,
 			);
@@ -214,6 +243,8 @@
 				BCFF40CC167F3D8D00F9B8C5 /* ImageUtils.m */,
 				BC265CC916AAF9CE00DB7EDD /* Browsers.h */,
 				BC265CCA16AAF9CE00DB7EDD /* Browsers.m */,
+				A870711A1FE8D63200F58919 /* DomainBrowserMapSettings.swift */,
+				A85B60A01FEB960E002E5DAF /* ModifierKeyBrowserMapSettings.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -224,12 +255,13 @@
 				BC9736A516806798002304FA /* BrowsersMenu.h */,
 				BC9736A616806798002304FA /* BrowsersMenu.m */,
 				BC9C5497165E57A80098709F /* PrefsController.xib */,
-				BC9C5495165E57A80098709F /* PrefsController.h */,
-				BC9C5496165E57A80098709F /* PrefsController.m */,
+				A870711C1FE9DAEC00F58919 /* PrefsController.swift */,
 				BCE2D47D1681B76200F4B40D /* OverlayWindow.h */,
 				BCE2D47E1681B76200F4B40D /* OverlayWindow.m */,
 				BCE2D4841681CD4300F4B40D /* OverlayWindowView.h */,
 				BCE2D4851681CD4300F4B40D /* OverlayWindowView.m */,
+				A85B60981FEB122E002E5DAF /* ModifierKeyListener.swift */,
+				A85B609C1FEB822D002E5DAF /* ModifierKeysControl.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -392,6 +424,11 @@
 			attributes = {
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "nth loop";
+				TargetAttributes = {
+					BCB54DDD164291F8003A59DF = {
+						LastSwiftMigration = 0920;
+					};
+				};
 			};
 			buildConfigurationList = BCB54DD8164291F8003A59DF /* Build configuration list for PBXProject "Objektiv" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -448,9 +485,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Objektiv/Pods-Objektiv-resources.sh",
+				$PODS_CONFIGURATION_BUILD_DIR/MASShortcut/MASShortcut.bundle,
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -490,13 +530,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Objektiv-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -507,17 +550,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCB54DEF164291F8003A59DF /* main.m in Sources */,
+				A870711B1FE8D63200F58919 /* DomainBrowserMapSettings.swift in Sources */,
 				BCB54DF6164291F8003A59DF /* AppDelegate.m in Sources */,
+				A85B60991FEB122E002E5DAF /* ModifierKeyListener.swift in Sources */,
 				BCB54E191642926D003A59DF /* NSWorkspace+Utils.m in Sources */,
-				BC9C5498165E57A80098709F /* PrefsController.m in Sources */,
+				A870711E1FE9FA5100F58919 /* PrefsController.swift in Sources */,
 				BCFF40CD167F3D8D00F9B8C5 /* ImageUtils.m in Sources */,
 				BC9736A716806798002304FA /* BrowsersMenu.m in Sources */,
+				A85B609D1FEB822D002E5DAF /* ModifierKeysControl.swift in Sources */,
 				BC9736B01680ACC1002304FA /* BrowserItem.m in Sources */,
 				BCE2D47F1681B76200F4B40D /* OverlayWindow.m in Sources */,
+				A87070EC1FE779F400F58919 /* DefaultBrowserMap.swift in Sources */,
 				BCE2D4861681CD4300F4B40D /* OverlayWindowView.m in Sources */,
 				BC084585168484D500619E60 /* ZeroKitUtilities.m in Sources */,
+				A85B60971FEB118C002E5DAF /* ModifierKeyBrowserMap.swift in Sources */,
+				A87071191FE8706A00F58919 /* DomainBrowserMap.swift in Sources */,
+				A87070E91FE709C200F58919 /* BrowserMappable.swift in Sources */,
 				BC084589168498D000619E60 /* PFMoveApplication.m in Sources */,
 				BC08458D1684998600619E60 /* NSString+SymlinksAndAliases.m in Sources */,
+				A85B60A11FEB960E002E5DAF /* ModifierKeyBrowserMapSettings.swift in Sources */,
 				BC265CCB16AAF9CE00DB7EDD /* Browsers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -688,6 +739,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1A16FB89B189A169D683F7E2 /* Pods-Objektiv.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -696,11 +748,15 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Objektiv/Objektiv-Prefix.pch";
 				INFOPLIST_FILE = "Objektiv/Objektiv-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nthloop.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Objektiv;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Objektiv/Objektiv-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -709,6 +765,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B1FCC4D6C80F9B9D903BC35D /* Pods-Objektiv.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -717,11 +774,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Objektiv/Objektiv-Prefix.pch";
 				INFOPLIST_FILE = "Objektiv/Objektiv-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nthloop.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Objektiv;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Objektiv/Objektiv-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

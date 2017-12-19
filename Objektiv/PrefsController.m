@@ -8,6 +8,8 @@
 
 #import "PrefsController.h"
 #import "Constants.h"
+#import "Browsers.h"
+#import "Objektiv-Swift.h"
 #import <MASShortcut/MASShortcut.h>
 
 @interface PrefsController ()
@@ -19,11 +21,14 @@
 
 @implementation PrefsController
 
+@synthesize browsers;
+
 - (id)initWithWindow:(NSWindow *)window
 {
     self = [super initWithWindow:window];
     if (self) {
         defaults = [NSUserDefaults standardUserDefaults];
+        browsers = [Browsers sharedInstance].browsers;
     }
 
     return self;

@@ -10,13 +10,13 @@
 #import "BrowserItem.h"
 #import "Browsers.h"
 #import "Constants.h"
-#import "PrefsController.h"
 #import "ImageUtils.h"
 #import "BrowsersMenu.h"
 #import "OverlayWindow.h"
 #import "ZeroKitUtilities.h"
 #import <MASShortcut/Shortcut.h>
 #import "PFMoveApplication.h"
+#import "Objektiv-Swift.h"
 #import <CDEvents.h>
 #import <Sparkle/Sparkle.h>
 
@@ -30,6 +30,7 @@
     OverlayWindow *overlayWindow;
     CDEvents *cdEvents;
     NSString *_defaultBrowser;
+    NSArray *browserMaps;
 }
 @end
 
@@ -85,6 +86,10 @@
     [self showAndHideIcon:nil];
 
     overlayWindow = [[OverlayWindow alloc] init];
+
+    [ModifierKeyListener shared];
+
+    [self setupBrowserMaps];
 
     [self watchApplicationsFolder];
 
@@ -283,6 +288,16 @@
     }
 }
 
+-(void)setupBrowserMaps
+{
+    browserMaps = [NSArray arrayWithObjects:
+                   [ModifierKeyBrowserMap new],
+                   [DomainBrowserMap new],
+                   [DefaultBrowserMap new],
+                   nil
+    ];
+}
+
 #pragma mark - File Handlers
 
 - (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename
@@ -304,12 +319,29 @@ withReplyEvent:(NSAppleEventDescriptor *)replyEvent
     NSArray *urls = [NSArray arrayWithObject:[NSURL URLWithString:location]];
     
     int options = NSWorkspaceLaunchAsync;
-    
-    [[NSWorkspace sharedWorkspace] openURLs: urls
-                    withAppBundleIdentifier: [[Browsers sharedInstance] defaultBrowserIdentifier]
-                                    options: options
-             additionalEventParamDescriptor: nil
-                          launchIdentifiers: nil];
+
+    NSDictionary *map = @{@"": urls};
+
+    // TODO map urls to a dictionary of browser identifiers and the urls each browser should open
+
+    for (id <BrowserMappable> browserMap in browserMaps) {
+        map = [browserMap updatedBrowserMapWithMap:map];
+
+        // Processing stops when there are no more urls to process.
+        if ([map objectForKey:@""] == nil) {
+            break;
+        }
+    }
+
+    if (map) {
+        for (NSString* appBundleIdentifier in map) {
+            [[NSWorkspace sharedWorkspace] openURLs: [map objectForKey: appBundleIdentifier]
+                            withAppBundleIdentifier: appBundleIdentifier
+                                            options: options
+                     additionalEventParamDescriptor: nil
+                                  launchIdentifiers: nil];
+        }
+    }
 }
 
 @end

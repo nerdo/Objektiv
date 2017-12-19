@@ -7,6 +7,7 @@
 //
 
 #import "BrowserItem.h"
+#import "Objektiv-Swift.h"
 
 @implementation BrowserItem
 
