@@ -12,12 +12,7 @@ import Foundation
     public func updatedBrowserMap(map: [String: [URL]]) -> [String: [URL]] {
         var newMap: [String : [URL]] = map
 
-        if let defaultBrowserIdentifier = Browsers.sharedInstance().defaultBrowserIdentifier,
-            let unprocessedUrls = map[""] {
-            if newMap[defaultBrowserIdentifier] == nil {
-                newMap[defaultBrowserIdentifier] = []
-            }
-
+        if let unprocessedUrls = map[""] {
             guard let browserItems = Browsers.browsers() as? [BrowserItem] else {
                 return newMap
             }

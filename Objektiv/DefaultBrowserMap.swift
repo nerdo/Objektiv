@@ -13,14 +13,15 @@ import Foundation
         var newMap: [String : [URL]] = map
 
         if let defaultBrowserIdentifier = Browsers.sharedInstance().defaultBrowserIdentifier,
-            let unprocessedUrls = map[""] {
+            let unprocessedUrls = map[""], unprocessedUrls.count > 0 {
             if newMap[defaultBrowserIdentifier] == nil {
                 newMap[defaultBrowserIdentifier] = []
             }
 
             newMap[defaultBrowserIdentifier]?.append(contentsOf: unprocessedUrls)
-            newMap[""] = nil
         }
+        
+        newMap[""] = nil
 
         return newMap
     }
