@@ -17,6 +17,7 @@
 		A87071191FE8706A00F58919 /* DomainBrowserMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87071181FE8706A00F58919 /* DomainBrowserMap.swift */; };
 		A870711B1FE8D63200F58919 /* DomainBrowserMapSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A870711A1FE8D63200F58919 /* DomainBrowserMapSettings.swift */; };
 		A870711E1FE9FA5100F58919 /* PrefsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A870711C1FE9DAEC00F58919 /* PrefsController.swift */; };
+		A8D3E5651FF8079B0051B91C /* ModifierKeysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D3E5641FF8079B0051B91C /* ModifierKeysCell.swift */; };
 		BC084585168484D500619E60 /* ZeroKitUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = BC084584168484D500619E60 /* ZeroKitUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BC084589168498D000619E60 /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = BC084588168498D000619E60 /* PFMoveApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BC08458D1684998600619E60 /* NSString+SymlinksAndAliases.m in Sources */ = {isa = PBXBuildFile; fileRef = BC08458B1684998600619E60 /* NSString+SymlinksAndAliases.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -100,6 +101,7 @@
 		A87071181FE8706A00F58919 /* DomainBrowserMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DomainBrowserMap.swift; path = browsermaps/DomainBrowserMap.swift; sourceTree = "<group>"; };
 		A870711A1FE8D63200F58919 /* DomainBrowserMapSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainBrowserMapSettings.swift; sourceTree = "<group>"; };
 		A870711C1FE9DAEC00F58919 /* PrefsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefsController.swift; sourceTree = "<group>"; };
+		A8D3E5641FF8079B0051B91C /* ModifierKeysCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifierKeysCell.swift; sourceTree = "<group>"; };
 		B1FCC4D6C80F9B9D903BC35D /* Pods-Objektiv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Objektiv.release.xcconfig"; path = "Pods/Target Support Files/Pods-Objektiv/Pods-Objektiv.release.xcconfig"; sourceTree = "<group>"; };
 		BC084583168484D500619E60 /* ZeroKitUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZeroKitUtilities.h; path = zerokit/ZeroKitUtilities.h; sourceTree = "<group>"; };
 		BC084584168484D500619E60 /* ZeroKitUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZeroKitUtilities.m; path = zerokit/ZeroKitUtilities.m; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				BCE2D4851681CD4300F4B40D /* OverlayWindowView.m */,
 				A85B60981FEB122E002E5DAF /* ModifierKeyListener.swift */,
 				A85B609C1FEB822D002E5DAF /* ModifierKeysControl.swift */,
+				A8D3E5641FF8079B0051B91C /* ModifierKeysCell.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				A85B60991FEB122E002E5DAF /* ModifierKeyListener.swift in Sources */,
 				BCB54E191642926D003A59DF /* NSWorkspace+Utils.m in Sources */,
 				A870711E1FE9FA5100F58919 /* PrefsController.swift in Sources */,
+				A8D3E5651FF8079B0051B91C /* ModifierKeysCell.swift in Sources */,
 				BCFF40CD167F3D8D00F9B8C5 /* ImageUtils.m in Sources */,
 				BC9736A716806798002304FA /* BrowsersMenu.m in Sources */,
 				A85B609D1FEB822D002E5DAF /* ModifierKeysControl.swift in Sources */,

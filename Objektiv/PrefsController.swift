@@ -14,6 +14,7 @@
     private var browserModifierKeys: [UInt] = []
     private var imageCache = NSCache<NSString, NSImage>()
 
+    @IBOutlet weak var tableView: NSTableView!
     @IBOutlet var startAtLogin: NSButton!
     @IBOutlet var autoHideIcon: NSButton!
     @IBOutlet var showNotifications: NSButton!
@@ -21,7 +22,8 @@
     @IBOutlet weak var webBrowserOutlineView: NSOutlineView!
     @IBOutlet weak var alwaysOpenTextField: NSTextField!
     @IBOutlet var hostnamesTextView: NSTextView!
-    @IBOutlet weak var modifierKeysControl: ModifierKeysControl!
+    @IBOutlet weak var removeKeysButton: NSButton!
+    @IBOutlet weak var addKeysButton: NSButton!
 
     @objc override init(window: NSWindow?) {
         defaults = UserDefaults.standard
@@ -52,25 +54,16 @@
         showNotifications.state = (defaults?.bool(forKey: PrefShowNotifications))! ? .on : .off
         hotkeyRecorder.associatedUserDefaultsKey = PrefHotkey
         hostnamesTextView.delegate = self
-        modifierKeysControl.target = self
-        modifierKeysControl.action = #selector(modifierKeyChanged(sender:))
         webBrowserOutlineView.allowsEmptySelection = false
         webBrowserOutlineView.selectRowIndexes(IndexSet(integer: 0), byExtendingSelection: false)
         selectedBrowserChanged(self)
+        tableViewSelectionDidChange(Notification(name: .init("tableViewSelectionDidChange")))
     }
 
-    @objc func modifierKeyChanged(sender: Any) {
+    fileprivate func saveModifierKeys() {
         guard let browser = browser else {
             return
         }
-
-        if (browserModifierKeys.count == 0) {
-            browserModifierKeys.append(modifierKeysControl.modifierFlags.rawValue)
-        } else {
-            browserModifierKeys[0] = modifierKeysControl.modifierFlags.rawValue
-        }
-        print("browserModifierKeys = \(browserModifierKeys)")
-
         defaults?.set(browserModifierKeys, forKey: "\(browser.identifier):modifierKeys")
     }
 
@@ -92,7 +85,7 @@
 
     @IBAction func selectedBrowserChanged(_ sender: Any) {
         browser = browsers[webBrowserOutlineView.selectedRow]
-        alwaysOpenTextField.stringValue = "\(browser?.name ?? "") Hostnames"
+//        alwaysOpenTextField.stringValue = "\(browser?.name ?? "") Hostnames"
         guard let browser = browser else {
             return
         }
@@ -104,13 +97,19 @@
         } else {
             browserModifierKeys = []
         }
+        tableView.reloadData()
+    }
 
-        print("browserModifierKeys = \(browserModifierKeys)")
-        if browserModifierKeys.count > 0 {
-            modifierKeysControl.modifierFlags = NSEvent.ModifierFlags(rawValue: browserModifierKeys[0])
-        } else {
-            modifierKeysControl.modifierFlags = NSEvent.ModifierFlags(rawValue: 0)
-        }
+    @IBAction func addModifierKeyAction(_ sender: Any) {
+        browserModifierKeys.append(0)
+        saveModifierKeys()
+        tableView.reloadData()
+    }
+
+    @IBAction func removeModifierKeyAction(_ sender: Any) {
+        browserModifierKeys.remove(at: tableView.selectedRow)
+        saveModifierKeys()
+        tableView.reloadData()
     }
 }
 
@@ -120,6 +119,54 @@ extension PrefsController: NSTextViewDelegate {
             return
         }
         defaults?.set(hostnamesTextView.string, forKey: "\(browser.identifier):hostnames")
+    }
+}
+
+extension PrefsController: NSTableViewDataSource {
+    public func numberOfRows(in tableView: NSTableView) -> Int {
+        return browserModifierKeys.count
+    }
+
+    public func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+        guard let columnIdentifier = tableColumn?.identifier.rawValue else {
+            return nil
+        }
+
+        if columnIdentifier == "modifierKeys" {
+            if row > browserModifierKeys.count - 1 {
+                return 0
+            }
+
+            return NSEvent.ModifierFlags(rawValue: browserModifierKeys[row])
+        }
+
+        return nil
+    }
+
+    func tableView(_ tableView: NSTableView, setObjectValue object: Any?, for tableColumn: NSTableColumn?, row: Int) {
+        guard let columnIdentifier = tableColumn?.identifier.rawValue else {
+            return
+        }
+
+        if columnIdentifier == "modifierKeys", let modifierFlags = object as? NSEvent.ModifierFlags {
+            while row > browserModifierKeys.count - 1 {
+                browserModifierKeys.append(0)
+            }
+
+            browserModifierKeys[row] = modifierFlags.rawValue
+            saveModifierKeys()
+        }
+    }
+}
+
+extension PrefsController: NSTableViewDelegate {
+    func tableView(_ tableView: NSTableView, shouldSelect tableColumn: NSTableColumn?) -> Bool {
+        return false
+    }
+
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        let rowsAreSelected = tableView.selectedRowIndexes.count > 0
+        removeKeysButton.isEnabled = rowsAreSelected
     }
 }
 
@@ -136,7 +183,6 @@ extension PrefsController: NSOutlineViewDataSource {
     }
 
     public func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        print("data here")
         return browsers[index]
     }
 }
