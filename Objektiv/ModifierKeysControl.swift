@@ -58,7 +58,8 @@ open class ModifierKeysControl: NSSegmentedControl {
     }
 
     open override func layout() {
-        let segmentWidth = bounds.width / 5.0
+//        let segmentWidth = bounds.width / 5.0
+        let segmentWidth = CGFloat(0.0)
         setWidth(segmentWidth, forSegment: 0)
         setWidth(segmentWidth, forSegment: 1)
         setWidth(segmentWidth, forSegment: 2)

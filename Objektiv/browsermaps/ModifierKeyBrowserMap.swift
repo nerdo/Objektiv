@@ -22,19 +22,25 @@ import Foundation
 //            print("currentModifierFlags = \(currentModifierFlags)")
 
             for browser in browserItems {
-                // This should probably go elsewhere (BrowserItem) but I don't know Objective C that well...
-                browser.modifierKeyBrowserMapSettings = ModifierKeyBrowserMapSettings(
-                    modifierFlags: UInt(UserDefaults.standard.integer(forKey: "\(browser.identifier):modifierKeys"))
-                )
+                guard let modifierKeySets = UserDefaults.standard.array(forKey: "\(browser.identifier):modifierKeys") as? [UInt] else {
+                    continue
+                }
 
-//                print("browserModifierFlags = \(browser.modifierKeyBrowserMapSettings.modifierFlags)")
-                if browser.modifierKeyBrowserMapSettings.modifierFlags.rawValue != 0
-                    && browser.modifierKeyBrowserMapSettings.modifierFlags == currentModifierFlags {
-                    if newMap[browser.identifier] == nil {
-                        newMap[browser.identifier] = []
+                browser.modifierKeyBrowserMapSettings = ModifierKeyBrowserMapSettings(modifierFlags: modifierKeySets)
+                for modifierKeys in browser.modifierKeyBrowserMapSettings.modifierFlags {
+                    guard let modifierFlags = modifierKeys as? NSEvent.ModifierFlags else {
+                        continue
                     }
-                    newMap[browser.identifier]?.append(contentsOf: unprocessedUrls)
-                    wasMapped = true
+
+    //                print("browserModifierFlags = \(modifierFlags)")
+                    if modifierFlags.rawValue != 0 && modifierFlags == currentModifierFlags {
+                        if newMap[browser.identifier] == nil {
+                            newMap[browser.identifier] = []
+                        }
+                        newMap[browser.identifier]?.append(contentsOf: unprocessedUrls)
+                        wasMapped = true
+                        break
+                    }
                 }
             }
 

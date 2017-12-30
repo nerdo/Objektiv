@@ -11,6 +11,7 @@
     private var defaults: UserDefaults?
     private var browsers: [BrowserItem]
     private var browser: BrowserItem?
+    private var browserModifierKeys: [UInt] = []
     private var imageCache = NSCache<NSString, NSImage>()
 
     @IBOutlet var startAtLogin: NSButton!
@@ -53,13 +54,24 @@
         hostnamesTextView.delegate = self
         modifierKeysControl.target = self
         modifierKeysControl.action = #selector(modifierKeyChanged(sender:))
+        webBrowserOutlineView.allowsEmptySelection = false
+        webBrowserOutlineView.selectRowIndexes(IndexSet(integer: 0), byExtendingSelection: false)
+        selectedBrowserChanged(self)
     }
 
     @objc func modifierKeyChanged(sender: Any) {
         guard let browser = browser else {
             return
         }
-        defaults?.set(modifierKeysControl.modifierFlags.rawValue, forKey: "\(browser.identifier):modifierKeys")
+
+        if (browserModifierKeys.count == 0) {
+            browserModifierKeys.append(modifierKeysControl.modifierFlags.rawValue)
+        } else {
+            browserModifierKeys[0] = modifierKeysControl.modifierFlags.rawValue
+        }
+        print("browserModifierKeys = \(browserModifierKeys)")
+
+        defaults?.set(browserModifierKeys, forKey: "\(browser.identifier):modifierKeys")
     }
 
     // MARK: - IBActions
@@ -84,10 +96,21 @@
         guard let browser = browser else {
             return
         }
+
         hostnamesTextView.string = defaults?.string(forKey: "\(browser.identifier):hostnames") ?? ""
-        modifierKeysControl.modifierFlags = NSEvent.ModifierFlags(
-            rawValue: UInt(defaults?.integer(forKey: "\(browser.identifier):modifierKeys") ?? 0)
-        )
+
+        if let modifierKeyIntegers = defaults?.array(forKey: "\(browser.identifier):modifierKeys") as? [UInt] {
+            browserModifierKeys = modifierKeyIntegers
+        } else {
+            browserModifierKeys = []
+        }
+
+        print("browserModifierKeys = \(browserModifierKeys)")
+        if browserModifierKeys.count > 0 {
+            modifierKeysControl.modifierFlags = NSEvent.ModifierFlags(rawValue: browserModifierKeys[0])
+        } else {
+            modifierKeysControl.modifierFlags = NSEvent.ModifierFlags(rawValue: 0)
+        }
     }
 }
 
@@ -113,6 +136,7 @@ extension PrefsController: NSOutlineViewDataSource {
     }
 
     public func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
+        print("data here")
         return browsers[index]
     }
 }

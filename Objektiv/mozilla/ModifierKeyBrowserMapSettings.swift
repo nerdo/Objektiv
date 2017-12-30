@@ -9,14 +9,18 @@
 import Foundation
 
 @objc public class ModifierKeyBrowserMapSettings: NSObject {
-    @objc public var modifierFlags: NSEvent.ModifierFlags
+    @objc public var modifierFlags: NSMutableArray
 
     @objc override init() {
-        modifierFlags = NSEvent.ModifierFlags()
+        modifierFlags = NSMutableArray()
         super.init()
     }
 
-    @objc public init(modifierFlags: UInt) {
-        self.modifierFlags = NSEvent.ModifierFlags(rawValue: modifierFlags)
+    @objc public init(modifierFlags: [UInt]) {
+        self.modifierFlags = NSMutableArray(
+            array: modifierFlags
+                .filter { $0 != 0 }
+                .map { NSEvent.ModifierFlags(rawValue: $0) }
+        )
     }
 }
